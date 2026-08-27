@@ -67,6 +67,7 @@ int main() {
 	unsigned int indices[] = {  // note that we start from 0!
 		3,2,1,// second Triangle
 		0,1,3,
+		0,2,3, // indices agregados para un triangulo superior-izquierdo
 		
 	};
 
@@ -137,11 +138,11 @@ int main() {
 		//glDrawArrays(GL_LINES,0,4);
 
 		// 3. Dibujar un cuadrilatero relleno
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 		// 4. Dibujar un triangulo superior-izquierdo y uno superior-derecho (usando los indices)
-		//glDrawElements(GL_TRIANGLES, 3,GL_UNSIGNED_INT,0);
-		//glDrawElements(GL_TRIANGLES, 3,GL_UNSIGNED_INT,0);
+		//glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, (void*)(3 * sizeof(GLuint)));
+		//glDrawElements(GL_TRIANGLES, 3,GL_UNSIGNED_INT, (void*)(6 * sizeof(GLuint)));
         
         glBindVertexArray(0);
     
