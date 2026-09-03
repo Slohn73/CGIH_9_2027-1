@@ -137,11 +137,11 @@ int main() {
 		//glDrawArrays(GL_LINES,0,4);
 
 		// 3. Dibujar un cuadrilatero relleno
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 		// 4. Dibujar un triangulo superior-izquierdo y uno superior-derecho (usando los indices)
-		//glDrawElements(GL_TRIANGLES, 3,GL_UNSIGNED_INT,0);
-		//glDrawElements(GL_TRIANGLES, 3,GL_UNSIGNED_INT,0);
+		glDrawElements(GL_TRIANGLES, 3,GL_UNSIGNED_INT,0);
+		//glDrawElements(GL_TRIANGLES, 6,GL_UNSIGNED_INT,0);
         
         glBindVertexArray(0);
     
