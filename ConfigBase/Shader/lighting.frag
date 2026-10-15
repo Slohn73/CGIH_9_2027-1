@@ -24,14 +24,16 @@ out vec4 color;
 
 uniform vec3 viewPos;
 uniform Material material;
-uniform Light light;
+uniform Light light1;
+uniform Light light2;
 
 uniform sampler2D texture_diffuse;
 
 void main()
 {
+    /* Luz 1 */
     // Ambient
-    vec3 ambient = light.ambient *material.diffuse;
+    vec3 ambient1 = light1.ambient *material.diffuse;
     
     // Diffuse
     vec3 norm = normalize(Normal);
@@ -45,6 +47,8 @@ void main()
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
     vec3 specular = light.specular * (spec * material.specular);
     
-    vec3 result = ambient + diffuse + specular;
+    vec3 result1 = ambient1 + diffuse1 + specular1;
+
+
     color = vec4(result, 1.0f)*texture(texture_diffuse,TexCoords);
 }
