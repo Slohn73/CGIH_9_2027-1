@@ -31,24 +31,42 @@ uniform sampler2D texture_diffuse;
 
 void main()
 {
+    vec3 norm = normalize(Normal);
+    vec3 viewDir = normalize(viewPos - FragPos);
+
     /* Luz 1 */
     // Ambient
     vec3 ambient1 = light1.ambient *material.diffuse;
     
     // Diffuse
-    vec3 norm = normalize(Normal);
-    vec3 lightDir = normalize(light.position - FragPos);
-    float diff = max(dot(norm, lightDir), 0.0);
-    vec3 diffuse = light.diffuse * diff * material.diffuse;
+    vec3 lightDir1 = normalize(light1.position - FragPos);
+    float diff1 = max(dot(norm, lightDir1), 0.0);
+    vec3 diffuse1 = light1.diffuse * diff1 * material.diffuse;
     
     // Specular
-    vec3 viewDir = normalize(viewPos - FragPos);
-    vec3 reflectDir = reflect(-lightDir, norm);
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
-    vec3 specular = light.specular * (spec * material.specular);
+    vec3 reflectDir1 = reflect(-lightDir1, norm);
+    float spec1 = pow(max(dot(viewDir, reflectDir1), 0.0), material.shininess);
+    vec3 specular1 = light1.specular * (spec1 * material.specular);
     
     vec3 result1 = ambient1 + diffuse1 + specular1;
 
+    /* Luz 2 */
+    // Ambient
+    vec3 ambient2 = light2.ambient *material.diffuse;
+    
+    // Diffuse
+    vec3 lightDir2 = normalize(light2.position - FragPos);
+    float diff2 = max(dot(norm, lightDir2), 0.0);
+    vec3 diffuse2 = light2.diffuse * diff2 * material.diffuse;
+    
+    // Specular
+    vec3 reflectDir2 = reflect(-lightDir2, norm);
+    float spec2 = pow(max(dot(viewDir, reflectDir2), 0.0), material.shininess);
+    vec3 specular2 = light2.specular * (spec2 * material.specular);
+    
+    vec3 result2 = ambient2 + diffuse2 + specular2;
 
-    color = vec4(result, 1.0f)*texture(texture_diffuse,TexCoords);
+    vec3 resultadoFinal = result1 + result2;
+
+    color = vec4(resultadoFinal, 1.0f)*texture(texture_diffuse,TexCoords);
 }

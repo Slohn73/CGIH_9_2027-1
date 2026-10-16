@@ -237,7 +237,7 @@ int main()
 
         // Set material properties
         glUniform3f(glGetUniformLocation(lightingShader.Program, "material.ambient"), 0.3f, 0.4f, 0.5f);
-        glUniform3f(glGetUniformLocation(lightingShader.Program, "material.diffuse"), 0.1f, 0.9f, 0.7f);
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "material.diffuse"), 0.1f, 0.5f, 0.5f);
         glUniform3f(glGetUniformLocation(lightingShader.Program, "material.specular"), 0.2f, 0.1f, 0.1f);
         glUniform1f(glGetUniformLocation(lightingShader.Program, "material.shininess"), 0.1f);
 
@@ -387,5 +387,3 @@ void MouseCallback(GLFWwindow* window, double xPos, double yPos)
 
     camera.ProcessMouseMovement(xOffset, yOffset);
 }
-
-
