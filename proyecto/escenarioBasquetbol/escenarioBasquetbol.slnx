@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="escenarioBasquetbol/escenarioBasquetbol.vcxproj" Id="6d3ec7f5-a9f6-4e67-a564-0e024cdbf954" />
+</Solution>
